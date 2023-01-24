@@ -11,3 +11,6 @@ ADD scripts/snx.sh /root
 RUN chmod +x /root/snx.sh
 
 CMD ["/root/snx.sh"]
+
+
+# docker build -t q946666800/snx-checkpoint-vpn:v1 .

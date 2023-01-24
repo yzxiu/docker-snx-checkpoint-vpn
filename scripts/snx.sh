@@ -23,17 +23,18 @@
 server=$SNX_SERVER
 user=$SNX_USER
 password=$SNX_PASSWORD
+opts=$SNX_OPTS
 snx_command=""
 certificate_path="/certificate.p12"
 
 if [ -f "$certificate_path" ]; then
     if [ ! -z "$user" ]; then
-        snx_command="snx -s $server -u $user -c $certificate_path"
+        snx_command="snx -s $server -u $user -c $certificate_path $opts"
     else
-        snx_command="snx -s $server -c $certificate_path"
+        snx_command="snx -s $server -c $certificate_path $opts"
     fi
 else
-    snx_command="snx -s $server -u $user"
+    snx_command="snx -s $server -u $user $opts"
 fi
 
 iptables -t nat -A POSTROUTING -o tunsnx -j MASQUERADE
